@@ -7,12 +7,12 @@ const config = require("./config/config");
 const app = module.exports = new Koa();
 const addController = require("./controllers");
 
-
 app.use(logger());
 app.use(bodyParser());
 
-mongoose.Promise = global.Promise;
-mongoose.createConnection(config.database);
+mongoose.promise = global.promise;
+
+mongoose.connect(config.database, config.mongoSettings);
 
 app.use(addController());
 

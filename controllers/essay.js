@@ -17,23 +17,19 @@ let essayList = async (ctx) => {
         content: 'neineineienie'
     }];
 
-    const oneData = {title: 'qqqqqqq', content: 'qweerrtgsdfds'};
+    //const oneData = {title: 'qqqqqqq', content: 'qweerrtgsdfds'};
 
-    /*const insert = essayModel.insertMany(data, (error, docs) => {
+    const insert = await essayModel.insertMany(data, (error, docs) => {
         console.log(docs);
-    });*/
-
-    const aaa = new essayModel(oneData);
-
-    await aaa.save((err) => {
-        debugger
-    }).then(res => {
-        debugger
-    }).catch(function(err){
-        console.log(err);
-        console.log(213123);
-        ctx.body = oneData
     });
+
+    //const aaa = new essayModel(oneData);
+
+    //const res = await aaa.save();
+
+    ctx.body = {
+        insert
+    }
 
 };
 
