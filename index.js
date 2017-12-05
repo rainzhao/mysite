@@ -15,7 +15,6 @@ mongoose.promise = global.promise;
 
 common.connect(config.database, config.mongoSettings);
 
-
 app.use(addController());
 
 //add router middleware
