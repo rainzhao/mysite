@@ -4,6 +4,7 @@ const logger = require("koa-logger");
 const bodyParser = require("koa-bodyparser");
 const mongoose = require("mongoose");
 const config = require("./config/config");
+const common = require('./common/connectdb');
 const app = module.exports = new Koa();
 const addController = require("./controllers");
 
@@ -12,7 +13,8 @@ app.use(bodyParser());
 
 mongoose.promise = global.promise;
 
-mongoose.connect(config.database, config.mongoSettings);
+common.connect(config.database, config.mongoSettings);
+
 
 app.use(addController());
 
