@@ -1,8 +1,11 @@
 
-const fs = require("fs");
+const fs = require('fs');
+const path = require('path');
+
 
 let addController = (dir,router) => {
-    let files = fs.readdirSync(__dirname + `/${dir}/`);
+    let filePath = path.join(__dirname, `/${dir}/`);
+    let files = fs.readdirSync(filePath);
 
     let js_files = files.filter((f) => {
         return f.endsWith('.js');
@@ -17,9 +20,11 @@ let addMapping = (urlparams,router) => {
     for(let url in urlparams){
         if(Object.prototype.hasOwnProperty.call(urlparams,url)){
             if(url.startsWith("GET /")){
-                router.get(url.substring(4), urlparams[url]);
+                let path = url.substring(4);
+                router.get(path, urlparams[url]);
             }else if(url.startsWith("POST /")){
-                router.post(url.substring(4), urlparams[url]);
+                let path = url.substring(5);
+                router.post(path, urlparams[url]);
             }else{
                 console.log(`请求的${url} url不合法`);
             }
