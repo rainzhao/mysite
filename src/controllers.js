@@ -2,7 +2,6 @@
 const fs = require('fs');
 const path = require('path');
 
-
 let addController = (dir,router) => {
     let filePath = path.join(__dirname, `/${dir}/`);
     let files = fs.readdirSync(filePath);
@@ -22,9 +21,11 @@ let addMapping = (urlparams,router) => {
             if(url.startsWith("GET /")){
                 let path = url.substring(4);
                 router.get(path, urlparams[url]);
+                console.log(path);
             }else if(url.startsWith("POST /")){
                 let path = url.substring(5);
                 router.post(path, urlparams[url]);
+                console.log(path);
             }else{
                 console.log(`请求的${url} url不合法`);
             }

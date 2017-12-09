@@ -15,7 +15,7 @@ const saveEssay = async (ctx) => {
     }
 
     ctx.body = {
-        ...res
+        ...res._doc
     }
 };
 
