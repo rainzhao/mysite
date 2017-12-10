@@ -7,8 +7,10 @@ const mongoose = require("mongoose");
 const config = require("./config/config");
 const common = require('./common/connectdb');
 const app = module.exports = new Koa();
+const cors = require('koa-cors');
 const addController = require("./controllers");
 
+app.use(cors());
 app.use(logger());
 app.use(bodyParser({
     onerror: (err, ctx) => {
