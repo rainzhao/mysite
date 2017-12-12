@@ -16,7 +16,7 @@ let essayList = async (ctx) => {
 
 let essayOne = async (ctx) => {
     let mes = ctx.request.body;
-    const res = {};
+    let res = {};
     if(mes && mes.id){
         let selectId = mes.id;
         res = await essayModel.find({_id: selectId});
