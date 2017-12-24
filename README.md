@@ -1,5 +1,8 @@
 # mysite
 node + koa + mongodb
+
+## 安装mogodb数据库
+
 ## build
 1. npm install 
 
