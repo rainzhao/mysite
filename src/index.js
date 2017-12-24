@@ -8,8 +8,11 @@ const config = require("./config/config");
 const common = require('./common/connectdb');
 const app = module.exports = new Koa();
 const cors = require('koa-cors');
+const serve = require("koa-static");
+
 const addController = require("./controllers");
 
+app.use(serve(__dirname+ "../../dist/",{ extensions: ['html']}));
 app.use(cors());
 app.use(logger());
 app.use(bodyParser({

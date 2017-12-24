@@ -1,15 +1,11 @@
-
+const fs = require('fs');
 const {index} = require("../constants/urlparam");
-
+const path = require('path');
 const fn_index = async (ctx) => {
+    const indexUrl = path.resolve(__dirname + './../../dist/index.html')
 
-    const mes = {
-        name: "rainzhao",
-        age: 22
-    };
-
-    ctx.response.type = "application/json";
-    ctx.response.body = mes;
+    ctx.response.type = 'html';
+    ctx.response.body = fs.createReadStream(indexUrl);
 
 };
 
